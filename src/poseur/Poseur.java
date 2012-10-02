@@ -65,7 +65,7 @@ public class Poseur
         gui = new PoseurGUI();
         
         // WE'LL USE THIS FOR DEBUGGING
-        debugText = new ArrayList();
+        debugText = new ArrayList<>();
         debugTextEnabled = DEFAULT_DEBUG_TEXT_ENABLED;
 
         // AND LOAD THE WINDOW SETTINGS FROM AN XML FILE

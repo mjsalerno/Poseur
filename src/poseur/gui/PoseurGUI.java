@@ -1,5 +1,6 @@
 package poseur.gui;
 
+import poseur.events.zoom.ZoomOutHandler;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -106,6 +107,7 @@ public class PoseurGUI extends JFrame
     // ZOOM CONTROLS
     private JToolBar zoomToolbar;
     private JButton zoomInButton;
+    private JButton zoomOutButton;
     private JButton dimensionsButton;
     private JLabel zoomLabel;
         
@@ -520,6 +522,7 @@ public class PoseurGUI extends JFrame
         // NOW THE ZOOM TOOLBAR
         zoomToolbar = new JToolBar();
         zoomInButton = (JButton)initButton(ZOOM_IN_IMAGE_FILE, zoomToolbar, tracker, idCounter++, JButton.class, null, ZOOM_IN_TOOLTIP);
+        zoomOutButton = (JButton)initButton(ZOOM_OUT_IMAGE_FILE, zoomToolbar, tracker, idCounter++, JButton.class, null, ZOOM_OUT_TOOLTIP);
         zoomLabel = new JLabel();
         zoomLabel.setFont(ZOOM_LABEL_FONT);
         updateZoomLabel();
@@ -756,6 +759,7 @@ public class PoseurGUI extends JFrame
         // ZOOM HANDLERS
         ZoomInHandler zih = new ZoomInHandler();
         zoomInButton.addActionListener(zih);
+        zoomOutButton.addActionListener(new ZoomOutHandler());
         ChangePoseDimensionsHandler cpdh = new ChangePoseDimensionsHandler();
         dimensionsButton.addActionListener(cpdh);
         
@@ -833,6 +837,7 @@ public class PoseurGUI extends JFrame
     private void setEnabledZoomControls(boolean isEnabled)
     {
         zoomInButton.setEnabled(isEnabled);
+        zoomOutButton.setEnabled(isEnabled);
         zoomLabel.setEnabled(isEnabled);
         dimensionsButton.setEnabled(isEnabled);
     }

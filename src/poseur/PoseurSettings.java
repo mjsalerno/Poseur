@@ -72,6 +72,7 @@ public class PoseurSettings
 
     // BUTTON IMAGES FOR ZOOM TOOLBAR
     public static final String ZOOM_IN_IMAGE_FILE = BUTTON_IMAGES_PATH + "ZoomIn.png";
+    public static final String ZOOM_OUT_IMAGE_FILE = BUTTON_IMAGES_PATH + "ZoomOut.png";
     public static final String POSE_DIMENSIONS_IMAGE_FILE = BUTTON_IMAGES_PATH + "Dimensions.png";
 
     // BUTTON IMAGES FOR THE SHAPES TOOLBAR
@@ -100,6 +101,7 @@ public class PoseurSettings
 
     // TOOLTIPS FOR CONTROLS ON ZOOM TOOLBAR
     public static final String ZOOM_IN_TOOLTIP = "Zoom In";
+    public static final String ZOOM_OUT_TOOLTIP = "Zoom Out";
     public static final String CHANGE_POSE_DIMENSIONS_TOOLTIP = "Change Pose Dimensions";
 
     // TOOLIPS FOR CONTROLS ON SHAPES TOOLBAR
