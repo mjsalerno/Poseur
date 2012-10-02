@@ -1,6 +1,5 @@
 package poseur.gui;
 
-import poseur.events.zoom.ZoomOutHandler;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
@@ -41,11 +40,13 @@ import poseur.events.files.ExitHandler;
 import poseur.events.files.ExportPoseHandler;
 import poseur.events.files.NewPoseHandler;
 import poseur.events.files.OpenPoseHandler;
+import poseur.events.files.SavePoseAsHandler;
 import poseur.events.files.SavePoseHandler;
 import poseur.events.shapes.RectangleSelectionHandler;
 import poseur.events.window.PoseurWindowHandler;
 import poseur.events.zoom.ChangePoseDimensionsHandler;
 import poseur.events.zoom.ZoomInHandler;
+import poseur.events.zoom.ZoomOutHandler;
 import poseur.files.ColorPalletLoader;
 import poseur.files.PoseurFileManager;
 import poseur.shapes.PoseurShape;
@@ -89,6 +90,7 @@ public class PoseurGUI extends JFrame
     private JButton newButton;
     private JButton openButton;
     private JButton saveButton;
+    private JButton saveAsButton;
     private JButton exportButton;
     private JButton exitButton;
     
@@ -492,6 +494,7 @@ public class PoseurGUI extends JFrame
         newButton    = (JButton)initButton(NEW_IMAGE_FILE,      fileToolbar,  tracker, idCounter++, JButton.class, null, NEW_TOOLTIP);
         openButton   = (JButton)initButton(OPEN_IMAGE_FILE,     fileToolbar,  tracker, idCounter++, JButton.class, null, OPEN_TOOLTIP);
         saveButton   = (JButton)initButton(SAVE_IMAGE_FILE,     fileToolbar,  tracker, idCounter++, JButton.class, null, SAVE_TOOLTIP);
+        saveAsButton   = (JButton)initButton(SAVE_AS_IMAGE_FILE,     fileToolbar,  tracker, idCounter++, JButton.class, null, SAVE_TOOLTIP);
         exportButton = (JButton)initButton(EXPORT_IMAGE_FILE,   fileToolbar,  tracker, idCounter++, JButton.class, null, EXPORT_TOOLTIP);
         exitButton   = (JButton)initButton(EXIT_IMAGE_FILE,     fileToolbar,  tracker, idCounter++, JButton.class, null, EXIT_TOOLTIP);
         
@@ -739,6 +742,7 @@ public class PoseurGUI extends JFrame
         openButton.addActionListener(oph);
         SavePoseHandler sph = new SavePoseHandler();
         saveButton.addActionListener(sph);
+        saveAsButton.addActionListener(new SavePoseAsHandler());
         ExportPoseHandler eph = new ExportPoseHandler();
         exportButton.addActionListener(eph);
         ExitHandler eh = new ExitHandler();
@@ -800,6 +804,8 @@ public class PoseurGUI extends JFrame
         
         // THESE BUTTONS START OFF AS DISABLED
         saveButton.setEnabled(false);
+        //TODO:Not sure when the save as button should be clickable.
+        //saveAsButton.setEnabled(false);
         exportButton.setEnabled(false);
     }
     
