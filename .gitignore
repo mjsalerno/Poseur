@@ -47,3 +47,6 @@ private
 ehthumbs.db
 Icon?
 Thumbs.db
+
+
+./data/poses/*
