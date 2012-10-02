@@ -807,12 +807,14 @@ public class PoseurGUI extends JFrame
         //TODO:Not sure when the save as button should be clickable.
         //saveAsButton.setEnabled(false);
         exportButton.setEnabled(false);
+        saveAsButton.setEnabled(false);
     }
     
     private void enableSaveAsAndExport()
     {
         // THESE ARE ENABLED AS SOON AS WE START EDITING
         exportButton.setEnabled(true);
+        saveAsButton.setEnabled(true);
     }    
         
     private void setEnabledEditControls(boolean isEnabled)
