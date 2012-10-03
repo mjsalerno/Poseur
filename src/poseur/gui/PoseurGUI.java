@@ -42,6 +42,7 @@ import poseur.events.files.NewPoseHandler;
 import poseur.events.files.OpenPoseHandler;
 import poseur.events.files.SavePoseAsHandler;
 import poseur.events.files.SavePoseHandler;
+import poseur.events.shapes.EllipseSelectionHandler;
 import poseur.events.shapes.RectangleSelectionHandler;
 import poseur.events.window.PoseurWindowHandler;
 import poseur.events.zoom.ChangePoseDimensionsHandler;
@@ -103,6 +104,7 @@ public class PoseurGUI extends JFrame
     // SHAPE SELECTION CONTROLS
     private JToolBar shapeToolbar;
     private JToggleButton rectToggleButton;
+    private JToggleButton ellipseToggleButton;
     private ButtonGroup shapeButtonGroup;
     private JComboBox lineStrokeSelectionComboBox;
     
@@ -507,8 +509,9 @@ public class PoseurGUI extends JFrame
         // HERE ARE OUR SHAPE SELECTION CONTROLS
         shapeToolbar = new JToolBar();
         shapeButtonGroup = new ButtonGroup();
-        rectToggleButton   = (JToggleButton)initButton( RECT_SELECTION_IMAGE_FILE,      shapeToolbar, tracker, idCounter++, JToggleButton.class, shapeButtonGroup, RECT_TOOLTIP);
-
+        rectToggleButton   = (JToggleButton)initButton( RECT_SELECTION_IMAGE_FILE, shapeToolbar, tracker, idCounter++, JToggleButton.class, shapeButtonGroup, RECT_TOOLTIP);
+        ellipseToggleButton= (JToggleButton)initButton( CIRCLE_SELECTION_IMAGE_FILE, shapeToolbar, tracker, idCounter++, JToggleButton.class, shapeButtonGroup, CIRCLE_TOOLTIP);
+        
         // THE LINE THICKNESS SELECTION COMBO BOX WILL GO WITH THE SHAPE CONTROLS
         DefaultComboBoxModel lineThicknessModel = new DefaultComboBoxModel();
         for (int i = 0; i < NUM_STROKES_TO_CHOOSE_FROM; i++)
@@ -759,6 +762,7 @@ public class PoseurGUI extends JFrame
         // SHAPE SELECTION HANDLERS
         RectangleSelectionHandler rsh = new RectangleSelectionHandler();
         rectToggleButton.addActionListener(rsh);
+        ellipseToggleButton.addActionListener(new EllipseSelectionHandler());
                 
         // ZOOM HANDLERS
         ZoomInHandler zih = new ZoomInHandler();
@@ -854,6 +858,7 @@ public class PoseurGUI extends JFrame
     {
         // INIT THEM AS USABLE OR NOT
         rectToggleButton.setEnabled(isEnabled);
+        ellipseToggleButton.setEnabled(isEnabled);
         lineStrokeSelectionComboBox.setEnabled(isEnabled);
         
         // IF THEY'RE USABLE, MAKE THE TOGGLES UNSELECTED
