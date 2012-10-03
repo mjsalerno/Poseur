@@ -97,7 +97,7 @@ public class PoseIO
                 
                 shapeToAdd = null;
                 
-                //TODO: add shapes here.
+                
                 if(shapeType.equals(shapeType.RECTANGLE)){
                     double x = Double.parseDouble(attributes.getNamedItem(X_ATTRIBUTE).getTextContent());
                     double y = Double.parseDouble(attributes.getNamedItem(Y_ATTRIBUTE).getTextContent());
