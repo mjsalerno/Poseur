@@ -43,6 +43,7 @@ import poseur.events.files.OpenPoseHandler;
 import poseur.events.files.SavePoseAsHandler;
 import poseur.events.files.SavePoseHandler;
 import poseur.events.shapes.EllipseSelectionHandler;
+import poseur.events.shapes.LineSelectionHandler;
 import poseur.events.shapes.RectangleSelectionHandler;
 import poseur.events.window.PoseurWindowHandler;
 import poseur.events.zoom.ChangePoseDimensionsHandler;
@@ -105,6 +106,7 @@ public class PoseurGUI extends JFrame
     private JToolBar shapeToolbar;
     private JToggleButton rectToggleButton;
     private JToggleButton ellipseToggleButton;
+    private JToggleButton lineToggleButton;
     private ButtonGroup shapeButtonGroup;
     private JComboBox lineStrokeSelectionComboBox;
     
@@ -511,6 +513,7 @@ public class PoseurGUI extends JFrame
         shapeButtonGroup = new ButtonGroup();
         rectToggleButton   = (JToggleButton)initButton( RECT_SELECTION_IMAGE_FILE, shapeToolbar, tracker, idCounter++, JToggleButton.class, shapeButtonGroup, RECT_TOOLTIP);
         ellipseToggleButton= (JToggleButton)initButton( CIRCLE_SELECTION_IMAGE_FILE, shapeToolbar, tracker, idCounter++, JToggleButton.class, shapeButtonGroup, CIRCLE_TOOLTIP);
+        lineToggleButton= (JToggleButton)initButton( LINE_SELECTION_IMAGE_FILE, shapeToolbar, tracker, idCounter++, JToggleButton.class, shapeButtonGroup, LINE_TOOLTIP);
         
         // THE LINE THICKNESS SELECTION COMBO BOX WILL GO WITH THE SHAPE CONTROLS
         DefaultComboBoxModel lineThicknessModel = new DefaultComboBoxModel();
@@ -763,6 +766,7 @@ public class PoseurGUI extends JFrame
         RectangleSelectionHandler rsh = new RectangleSelectionHandler();
         rectToggleButton.addActionListener(rsh);
         ellipseToggleButton.addActionListener(new EllipseSelectionHandler());
+        lineToggleButton.addActionListener(new LineSelectionHandler());
                 
         // ZOOM HANDLERS
         ZoomInHandler zih = new ZoomInHandler();
@@ -859,6 +863,7 @@ public class PoseurGUI extends JFrame
         // INIT THEM AS USABLE OR NOT
         rectToggleButton.setEnabled(isEnabled);
         ellipseToggleButton.setEnabled(isEnabled);
+        lineToggleButton.setEnabled(isEnabled);
         lineStrokeSelectionComboBox.setEnabled(isEnabled);
         
         // IF THEY'RE USABLE, MAKE THE TOGGLES UNSELECTED

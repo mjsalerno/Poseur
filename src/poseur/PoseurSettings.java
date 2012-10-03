@@ -79,6 +79,7 @@ public class PoseurSettings
     // BUTTON IMAGES FOR THE SHAPES TOOLBAR
     public static final String RECT_SELECTION_IMAGE_FILE = BUTTON_IMAGES_PATH + "Rect.png";
     public static final String CIRCLE_SELECTION_IMAGE_FILE = BUTTON_IMAGES_PATH + "Circle.png";
+    public static final String LINE_SELECTION_IMAGE_FILE = BUTTON_IMAGES_PATH + "Line.png";
 
     // BUTTON IMAGES FOR THE COLORS TOOLBAR
     public static final String CUSTOM_COLOR_SELECTOR_IMAGE_FILE = BUTTON_IMAGES_PATH + "CustomColor.png";
@@ -109,6 +110,7 @@ public class PoseurSettings
     // TOOLIPS FOR CONTROLS ON SHAPES TOOLBAR
     public static final String RECT_TOOLTIP = "Draw a Rectangle";
     public static final String CIRCLE_TOOLTIP = "Draw a Circle";
+    public static final String LINE_TOOLTIP = "Line a Circle";
     public static final String STROKE_TOOLTIP = "Select Stroke";
 
     // TOOLTIPS FOR CONTROLS ON COLORS TOOLBAR

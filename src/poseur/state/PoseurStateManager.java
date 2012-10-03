@@ -8,6 +8,7 @@ import poseur.files.PoseurFileManager;
 import poseur.gui.PoseCanvas;
 import poseur.gui.PoseurGUI;
 import poseur.shapes.PoseurEllipse;
+import poseur.shapes.PoseurLine;
 import poseur.shapes.PoseurRectangle;
 import poseur.shapes.PoseurShape;
 import poseur.shapes.PoseurShapeType;
@@ -344,6 +345,10 @@ public class PoseurStateManager
             if (shapeInProgressType == PoseurShapeType.ELLIPSE)
             {
                 shapeInProgress = PoseurEllipse.factoryBuildRectangle(poseSpaceX, poseSpaceY);
+            }
+            if (shapeInProgressType == PoseurShapeType.LINE)
+            {
+                shapeInProgress = PoseurLine.factoryBuildRectangle(poseSpaceX, poseSpaceY,poseSpaceX, poseSpaceY);
             }
 
             // WE NEED TO SWITCH MODES
