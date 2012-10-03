@@ -32,10 +32,6 @@ public class ColorPalletLoader {
      * load all the data found in the XML file inside here.
      */
     public void initColorPallet(String colorPalletXMLFile, ColorPalletState colorPalletState) {
-        Color[] colorPallet = new Color[20];
-        for (int i = 0; i < 20; i++) {
-            colorPallet[i] = Color.GRAY;
-        }
         XMLUtilities xmlLoader = new XMLUtilities();
         try {
             Document doc = xmlLoader.loadXMLDocument(colorPalletXMLFile, COLOR_PALLET_SETTINGS_SCHEMA);
@@ -43,19 +39,40 @@ public class ColorPalletLoader {
             int pSize = xmlLoader.getIntData(doc, PoseurSettings.PALLET_SIZE_NODE);
             int pRows = xmlLoader.getIntData(doc, PoseurSettings.PALLET_ROWS_NODE);
             int manyColors = xmlLoader.getNumNodesOfElement(doc, PoseurSettings.PALLET_COLOR_NODE);
-            int[] colors = new int[manyColors + 1];
+            Color[] colors = new Color[pSize];
             
             Node tmp;
+            int red, blue, green;
+            Color defaultColor;
+
+            tmp = xmlLoader.getNodeInSequence(doc, RED_NODE, 0);
+            red = Integer.parseInt(tmp.getFirstChild().getNodeValue());
+
+            tmp = xmlLoader.getNodeInSequence(doc, BLUE_NODE, 0);
+            blue = Integer.parseInt(tmp.getFirstChild().getNodeValue());
+
+            tmp = xmlLoader.getNodeInSequence(doc, GREEN_NODE, 0);
+            green = Integer.parseInt(tmp.getFirstChild().getNodeValue());
+
+            defaultColor = new Color(red, green, blue);
+            
             
             for (int i = 0; i < manyColors; i++) {
-                tmp = xmlLoader.getNodeInSequence(doc, RED_NODE, i);
-                //String temp = tmp.getFirstChild().getNodeValue();  put in int
+                tmp = xmlLoader.getNodeInSequence(doc, RED_NODE, i);                
+                red = Integer.parseInt(tmp.getFirstChild().getNodeValue());
+                
+                tmp = xmlLoader.getNodeInSequence(doc, BLUE_NODE, i);                
+                blue = Integer.parseInt(tmp.getFirstChild().getNodeValue());
+                
+                tmp = xmlLoader.getNodeInSequence(doc, GREEN_NODE, i);                
+                green = Integer.parseInt(tmp.getFirstChild().getNodeValue());
+                colors[i] = new Color(red, green, blue);
             }
-            
+            colorPalletState.loadColorPalletState(colors, pRows, manyColors, defaultColor);
             
         } catch (InvalidXMLFileFormatException ex) {
             Logger.getLogger(ColorPalletLoader.class.getName()).log(Level.SEVERE, null, ex);
         }
-        colorPalletState.loadColorPalletState(colorPallet, 2, 12, Color.GRAY);
+        
     }
 }
