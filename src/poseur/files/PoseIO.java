@@ -4,7 +4,6 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.HeadlessException;
 import java.awt.geom.Ellipse2D;
-import java.awt.geom.Line2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -31,6 +30,7 @@ import poseur.Poseur;
 import static poseur.PoseurSettings.*;
 import poseur.gui.PoseCanvas;
 import poseur.gui.PoseurGUI;
+import poseur.shapes.PoseurEllipse;
 import poseur.shapes.PoseurRectangle;
 import poseur.shapes.PoseurShape;
 import poseur.shapes.PoseurShapeType;
@@ -96,9 +96,17 @@ public class PoseIO
                 double y = Double.parseDouble(attributes.getNamedItem(Y_ATTRIBUTE).getTextContent());
                 double width = Double.parseDouble(attributes.getNamedItem(WIDTH_ATTRIBUTE).getTextContent());
                 double height = Double.parseDouble(attributes.getNamedItem(HEIGHT_ATTRIBUTE).getTextContent());
-                Rectangle2D.Double geometry = new Rectangle2D.Double(x, y, width, height);
-                shapeToAdd = new PoseurRectangle(geometry);
                 
+                shapeToAdd = null;
+                
+                //TODO: add shapes here.
+                if(shapeType.equals(shapeType.RECTANGLE)){
+                    Rectangle2D.Double geometry = new Rectangle2D.Double(x, y, width, height);
+                    shapeToAdd = new PoseurRectangle(geometry);
+                }else if(shapeType.equals(shapeType.ELLIPSE)){
+                    Ellipse2D.Double geometry = new Ellipse2D.Double(x, y, width, height);
+                    shapeToAdd = new PoseurEllipse(geometry);
+                }
                 // FIRST GET THE OUTLINE THICKNESS
                 Node outlineNode = xmlUtil.getChildNodeWithName(node, OUTLINE_THICKNESS_NODE);
                 int outlineThickness = Integer.parseInt(outlineNode.getTextContent());
