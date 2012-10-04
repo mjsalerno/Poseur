@@ -353,7 +353,13 @@ public class PoseurStateManager
 
             // WE NEED TO SWITCH MODES
             setState(PoseurState.COMPLETE_SHAPE_STATE);
-        }
+        }else if (pose.findShapeWithPoint(poseSpaceX, poseSpaceY) != null) {
+                this.state = PoseurState.DRAG_SHAPE_STATE;
+                this.selectedShape = pose.findShapeWithPoint(poseSpaceX, poseSpaceY);
+            } else {
+                this.state = PoseurState.SHAPE_SELECTED_STATE;
+                this.selectedShape = null;
+            }
     }
 
     /**
