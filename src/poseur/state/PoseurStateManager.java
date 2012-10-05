@@ -7,11 +7,7 @@ import static poseur.PoseurSettings.*;
 import poseur.files.PoseurFileManager;
 import poseur.gui.PoseCanvas;
 import poseur.gui.PoseurGUI;
-import poseur.shapes.PoseurEllipse;
-import poseur.shapes.PoseurLine;
-import poseur.shapes.PoseurRectangle;
-import poseur.shapes.PoseurShape;
-import poseur.shapes.PoseurShapeType;
+import poseur.shapes.*;
 /**
  * This class stores all the state information about the application
  * regarding the poses and rendering settings. Note that whenever
@@ -353,13 +349,15 @@ public class PoseurStateManager
 
             // WE NEED TO SWITCH MODES
             setState(PoseurState.COMPLETE_SHAPE_STATE);
-        }else if (pose.findShapeWithPoint(poseSpaceX, poseSpaceY) != null) {
-                this.state = PoseurState.DRAG_SHAPE_STATE;
-                this.selectedShape = pose.findShapeWithPoint(poseSpaceX, poseSpaceY);
-            } else {
-                this.state = PoseurState.SHAPE_SELECTED_STATE;
-                this.selectedShape = null;
-            }
+        }
+        else if (pose.findShapeWithPoint(poseSpaceX, poseSpaceY) != null) {
+            this.selectedShape = pose.findShapeWithPoint(poseSpaceX, poseSpaceY);
+            //setState(PoseurState.SHAPE_SELECTED_STATE);
+            setState(PoseurState.DRAG_SHAPE_STATE);            
+        } else {
+            setState(PoseurState.SHAPE_SELECTED_STATE);
+            this.selectedShape = null;
+        }
     }
 
     /**
