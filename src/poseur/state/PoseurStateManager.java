@@ -352,7 +352,6 @@ public class PoseurStateManager
         }
         else if (pose.findShapeWithPoint(poseSpaceX, poseSpaceY) != null) {
             this.selectedShape = pose.findShapeWithPoint(poseSpaceX, poseSpaceY);
-            //setState(PoseurState.SHAPE_SELECTED_STATE);
             setState(PoseurState.DRAG_SHAPE_STATE);            
         } else {
             setState(PoseurState.SHAPE_SELECTED_STATE);
