@@ -352,9 +352,10 @@ public class PoseurStateManager
         }
         else if (pose.findShapeWithPoint(poseSpaceX, poseSpaceY) != null) {
             this.selectedShape = pose.findShapeWithPoint(poseSpaceX, poseSpaceY);
-            setState(PoseurState.DRAG_SHAPE_STATE);            
+            setState(PoseurState.DRAG_SHAPE_STATE);    
+            
         } else {
-            setState(PoseurState.SHAPE_SELECTED_STATE);
+            startShapeSelection();
             this.selectedShape = null;
         }
     }
@@ -412,6 +413,10 @@ public class PoseurStateManager
                 repaintCanvases();
             }
         }
+        
+        if (state == PoseurState.DRAG_SHAPE_STATE){
+            setState(PoseurState.SHAPE_SELECTED_STATE);
+        }        
     }
     
     /**

@@ -157,6 +157,7 @@ public class PoseurLine extends PoseurShape{
      * @param poseArea The box in the middle of the rendering canvas
      * where the shapes are being rendered.
      */
+    //TODO: FIX LINE BEING RESIZED
     @Override
     public void moveShape(  int incX, int incY, 
                             Rectangle2D.Double poseArea) 
@@ -170,6 +171,26 @@ public class PoseurLine extends PoseurShape{
         // AND NOW CLAMP IT SO IT DOESN'T GO OFF THE EDGE
         
         // CLAMP ON LEFT SIDE
+        if (geometry.x1 < 0)
+        {
+            geometry.x1 = 0;
+        }
+        // CLAMP ON RIGHT
+        if ((geometry.x1) > poseArea.width)
+        {
+            geometry.x1 = poseArea.width -1;
+        }
+        // CLAMP ON TOP
+        if (geometry.y1 < 0)
+        {
+            geometry.y1 = 0;
+        }
+        // CLAMP ON BOTTOM
+        if ((geometry.y1) > poseArea.height)
+        {
+            geometry.y1 = poseArea.height;
+        }
+        
         if (geometry.x2 < 0)
         {
             geometry.x2 = 0;
@@ -189,6 +210,8 @@ public class PoseurLine extends PoseurShape{
         {
             geometry.y2 = poseArea.height;
         }
+        
+        
     }
     
     /**
