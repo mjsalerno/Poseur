@@ -1,8 +1,10 @@
 package poseur.state;
 
+import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
 import java.util.Iterator;
 import java.util.LinkedList;
+import poseur.shapes.PoseurLine;
 import poseur.shapes.PoseurShape;
 
 /**
@@ -188,6 +190,14 @@ public class PoseurPose
             {
                 // FOUND!
                 return testShape;
+                //need this to work with lines too
+            }else if (testShape instanceof PoseurLine){
+                //cast to line so i can use its methods
+                PoseurLine testLine = (PoseurLine) testShape;
+                //return the shape if the mouse is resonably close
+                if (testLine.intersects(x, y, 3, 3)) {
+                    return testShape;
+                }
             }
         }
         return null;

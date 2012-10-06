@@ -50,6 +50,10 @@ public class PoseurLine extends PoseurShape{
         Line2D.Double line = new Line2D.Double(x1, y1, x2, y2);
         return new PoseurLine(line);        
     }
+    
+    public boolean intersects(double x, double y, double w, double h){
+        return this.geometry.intersects(x, y, w, h);
+    }
 
     /**
      * Accessor method for getting this shape type.
