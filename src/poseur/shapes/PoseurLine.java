@@ -162,6 +162,10 @@ public class PoseurLine extends PoseurShape{
     public void moveShape(  int incX, int incY, 
                             Rectangle2D.Double poseArea) 
     {
+        
+        double xDist = Math.abs(geometry.x1 - geometry.x2);
+        double yDist = Math.abs(geometry.y1 - geometry.y2);
+        
         // MOVE THE SHAPE
         geometry.x1 += incX;
         geometry.y1 += incY;
@@ -174,41 +178,49 @@ public class PoseurLine extends PoseurShape{
         if (geometry.x1 < 0)
         {
             geometry.x1 = 0;
+            geometry.x2 = xDist;
         }
         // CLAMP ON RIGHT
         if ((geometry.x1) > poseArea.width)
         {
             geometry.x1 = poseArea.width -1;
+            geometry.x2 = xDist;
         }
         // CLAMP ON TOP
         if (geometry.y1 < 0)
         {
             geometry.y1 = 0;
+            geometry.y2 = yDist;
         }
         // CLAMP ON BOTTOM
         if ((geometry.y1) > poseArea.height)
         {
             geometry.y1 = poseArea.height;
+            geometry.y2 = yDist;
         }
         
         if (geometry.x2 < 0)
         {
             geometry.x2 = 0;
+            geometry.x1 = xDist;
         }
         // CLAMP ON RIGHT
         if ((geometry.x2) > poseArea.width)
         {
             geometry.x2 = poseArea.width -1;
+            geometry.x1 = (poseArea.width -1) - xDist;
         }
         // CLAMP ON TOP
         if (geometry.y2 < 0)
         {
             geometry.y2 = 0;
+            geometry.y1 = yDist;
         }
         // CLAMP ON BOTTOM
         if ((geometry.y2) > poseArea.height)
         {
             geometry.y2 = poseArea.height;
+            geometry.y1 = poseArea.height - yDist;
         }
         
         
