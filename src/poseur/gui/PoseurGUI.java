@@ -29,6 +29,7 @@ import poseur.Poseur;
 import static poseur.PoseurSettings.*;
 import poseur.events.canvas.PoseCanvasComponentHandler;
 import poseur.events.canvas.PoseCanvasMouseHandler;
+import poseur.events.colors.AlphaChangeListener;
 import poseur.events.colors.ColorPalletHandler;
 import poseur.events.colors.CustomColorHandler;
 import poseur.events.colors.FillColorHandler;
@@ -784,6 +785,7 @@ public class PoseurGUI extends JFrame
         colorPallet.registerColorPalletHandler(cph);
         CustomColorHandler cch = new CustomColorHandler();
         customColorSelectorButton.addActionListener(cch);
+        this.transparencySlider.addChangeListener(new AlphaChangeListener());
         
         // CANVAS MOUSE HANDLERS
         PoseCanvasMouseHandler rsmh = new PoseCanvasMouseHandler();
