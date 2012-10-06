@@ -70,6 +70,8 @@ public class PoseurSettings
     public static final String SELECTION_IMAGE_FILE = BUTTON_IMAGES_PATH + "Selection.png";
     public static final String COPY_IMAGE_FILE = BUTTON_IMAGES_PATH + "Copy.png";
     public static final String PASTE_IMAGE_FILE = BUTTON_IMAGES_PATH + "Paste.png";
+    public static final String MOVE_TO_BACK_IMAGE_FILE = BUTTON_IMAGES_PATH + "MoveToBack.png";
+    public static final String MOVE_TO_FRONT_IMAGE_FILE = BUTTON_IMAGES_PATH + "MoveToFront.png";
 
     // BUTTON IMAGES FOR ZOOM TOOLBAR
     public static final String ZOOM_IN_IMAGE_FILE = BUTTON_IMAGES_PATH + "ZoomIn.png";

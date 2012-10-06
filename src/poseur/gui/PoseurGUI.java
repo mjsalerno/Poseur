@@ -35,6 +35,8 @@ import poseur.events.colors.CustomColorHandler;
 import poseur.events.colors.FillColorHandler;
 import poseur.events.colors.OutlineColorHandler;
 import poseur.events.edit.CopyHandler;
+import poseur.events.edit.MoveToBackHandler;
+import poseur.events.edit.MoveToFrontHandler;
 import poseur.events.edit.PasteHandler;
 import poseur.events.edit.StartSelectionHandler;
 import poseur.events.files.ExitHandler;
@@ -102,6 +104,8 @@ public class PoseurGUI extends JFrame
     private JButton selectionButton;
     private JButton copyButton;
     private JButton pasteButton;
+    private JButton moveToFrontButton;
+    private JButton moveToBackButton;
     
     // SHAPE SELECTION CONTROLS
     private JToolBar shapeToolbar;
@@ -508,6 +512,8 @@ public class PoseurGUI extends JFrame
         selectionButton = (JButton)initButton(SELECTION_IMAGE_FILE, editToolbar, tracker, idCounter++, JButton.class, null, SELECT_TOOLTIP);
         copyButton  = (JButton)initButton(COPY_IMAGE_FILE,   editToolbar, tracker, idCounter++, JButton.class, null, COPY_TOOLTIP);
         pasteButton = (JButton)initButton(PASTE_IMAGE_FILE,  editToolbar, tracker, idCounter++, JButton.class, null, PASTE_TOOLTIP);
+        moveToBackButton = (JButton)initButton(MOVE_TO_BACK_IMAGE_FILE,  editToolbar, tracker, idCounter++, JButton.class, null, PASTE_TOOLTIP);
+        moveToFrontButton = (JButton)initButton(MOVE_TO_FRONT_IMAGE_FILE,  editToolbar, tracker, idCounter++, JButton.class, null, PASTE_TOOLTIP);
         
         // HERE ARE OUR SHAPE SELECTION CONTROLS
         shapeToolbar = new JToolBar();
@@ -762,6 +768,8 @@ public class PoseurGUI extends JFrame
         copyButton.addActionListener(copyEh);
         PasteHandler pasteEh = new PasteHandler();
         pasteButton.addActionListener(pasteEh);
+        moveToBackButton.addActionListener(new MoveToBackHandler());
+        moveToFrontButton.addActionListener(new MoveToFrontHandler());
         
         // SHAPE SELECTION HANDLERS
         RectangleSelectionHandler rsh = new RectangleSelectionHandler();
@@ -833,6 +841,8 @@ public class PoseurGUI extends JFrame
 
         // THESE ARE EASY, JUST DO AS THEY'RE TOLD
         copyButton.setEnabled(isEnabled);
+        moveToBackButton.setEnabled(isEnabled);
+        moveToFrontButton.setEnabled(isEnabled);
                 
         // WE ONLY WANT PASTE ENABLED IF THERE IS
         // SOMETHING ON THE CLIPBOARD
