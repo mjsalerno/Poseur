@@ -35,6 +35,7 @@ import poseur.events.colors.CustomColorHandler;
 import poseur.events.colors.FillColorHandler;
 import poseur.events.colors.OutlineColorHandler;
 import poseur.events.edit.CopyHandler;
+import poseur.events.edit.LineStrokeHandler;
 import poseur.events.edit.MoveToBackHandler;
 import poseur.events.edit.MoveToFrontHandler;
 import poseur.events.edit.PasteHandler;
@@ -770,6 +771,7 @@ public class PoseurGUI extends JFrame
         pasteButton.addActionListener(pasteEh);
         moveToBackButton.addActionListener(new MoveToBackHandler());
         moveToFrontButton.addActionListener(new MoveToFrontHandler());
+        this.lineStrokeSelectionComboBox.addActionListener(new LineStrokeHandler());
         
         // SHAPE SELECTION HANDLERS
         RectangleSelectionHandler rsh = new RectangleSelectionHandler();
