@@ -195,7 +195,7 @@ public class PoseurPose
                 //cast to line so i can use its methods
                 PoseurLine testLine = (PoseurLine) testShape;
                 //return the shape if the mouse is resonably close
-                if (testLine.intersects(x, y, 3, 3)) {
+                if (testLine.intersects(x-2, y-2, 5, 5)) {
                     return testShape;
                 }
             }
