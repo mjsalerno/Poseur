@@ -513,8 +513,8 @@ public class PoseurGUI extends JFrame
         selectionButton = (JButton)initButton(SELECTION_IMAGE_FILE, editToolbar, tracker, idCounter++, JButton.class, null, SELECT_TOOLTIP);
         copyButton  = (JButton)initButton(COPY_IMAGE_FILE,   editToolbar, tracker, idCounter++, JButton.class, null, COPY_TOOLTIP);
         pasteButton = (JButton)initButton(PASTE_IMAGE_FILE,  editToolbar, tracker, idCounter++, JButton.class, null, PASTE_TOOLTIP);
-        moveToBackButton = (JButton)initButton(MOVE_TO_BACK_IMAGE_FILE,  editToolbar, tracker, idCounter++, JButton.class, null, PASTE_TOOLTIP);
-        moveToFrontButton = (JButton)initButton(MOVE_TO_FRONT_IMAGE_FILE,  editToolbar, tracker, idCounter++, JButton.class, null, PASTE_TOOLTIP);
+        moveToBackButton = (JButton)initButton(MOVE_TO_BACK_IMAGE_FILE,  editToolbar, tracker, idCounter++, JButton.class, null, MOVE_TO_BACK_TOOLTIP);
+        moveToFrontButton = (JButton)initButton(MOVE_TO_FRONT_IMAGE_FILE,  editToolbar, tracker, idCounter++, JButton.class, null, MOVE_TO_FRONT_TOOLTIP);
         
         // HERE ARE OUR SHAPE SELECTION CONTROLS
         shapeToolbar = new JToolBar();

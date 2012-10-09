@@ -103,6 +103,8 @@ public class PoseurSettings
     public static final String SELECT_TOOLTIP = "Select Item";
     public static final String COPY_TOOLTIP = "Copy Selected Item";
     public static final String PASTE_TOOLTIP = "Paste from Clipboard";
+    public static final String MOVE_TO_FRONT_TOOLTIP = "Move to Front";
+    public static final String MOVE_TO_BACK_TOOLTIP = "Move to Back";
 
     // TOOLTIPS FOR CONTROLS ON ZOOM TOOLBAR
     public static final String ZOOM_IN_TOOLTIP = "Zoom In";
@@ -112,7 +114,7 @@ public class PoseurSettings
     // TOOLIPS FOR CONTROLS ON SHAPES TOOLBAR
     public static final String RECT_TOOLTIP = "Draw a Rectangle";
     public static final String CIRCLE_TOOLTIP = "Draw a Circle";
-    public static final String LINE_TOOLTIP = "Line a Circle";
+    public static final String LINE_TOOLTIP = "Draw a Line";
     public static final String STROKE_TOOLTIP = "Select Stroke";
 
     // TOOLTIPS FOR CONTROLS ON COLORS TOOLBAR
