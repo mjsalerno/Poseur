@@ -35,6 +35,7 @@ import poseur.events.colors.CustomColorHandler;
 import poseur.events.colors.FillColorHandler;
 import poseur.events.colors.OutlineColorHandler;
 import poseur.events.edit.CopyHandler;
+import poseur.events.edit.CutHandler;
 import poseur.events.edit.LineStrokeHandler;
 import poseur.events.edit.MoveToBackHandler;
 import poseur.events.edit.MoveToFrontHandler;
@@ -104,6 +105,7 @@ public class PoseurGUI extends JFrame
     private JToolBar editToolbar;
     private JButton selectionButton;
     private JButton copyButton;
+    private JButton cutButton;
     private JButton pasteButton;
     private JButton moveToFrontButton;
     private JButton moveToBackButton;
@@ -512,6 +514,7 @@ public class PoseurGUI extends JFrame
         editToolbar = new JToolBar();
         selectionButton = (JButton)initButton(SELECTION_IMAGE_FILE, editToolbar, tracker, idCounter++, JButton.class, null, SELECT_TOOLTIP);
         copyButton  = (JButton)initButton(COPY_IMAGE_FILE,   editToolbar, tracker, idCounter++, JButton.class, null, COPY_TOOLTIP);
+        cutButton  = (JButton)initButton(CUT_IMAGE_FILE,   editToolbar, tracker, idCounter++, JButton.class, null, CUT_TOOLTIP);
         pasteButton = (JButton)initButton(PASTE_IMAGE_FILE,  editToolbar, tracker, idCounter++, JButton.class, null, PASTE_TOOLTIP);
         moveToBackButton = (JButton)initButton(MOVE_TO_BACK_IMAGE_FILE,  editToolbar, tracker, idCounter++, JButton.class, null, MOVE_TO_BACK_TOOLTIP);
         moveToFrontButton = (JButton)initButton(MOVE_TO_FRONT_IMAGE_FILE,  editToolbar, tracker, idCounter++, JButton.class, null, MOVE_TO_FRONT_TOOLTIP);
@@ -769,6 +772,7 @@ public class PoseurGUI extends JFrame
         copyButton.addActionListener(copyEh);
         PasteHandler pasteEh = new PasteHandler();
         pasteButton.addActionListener(pasteEh);
+        cutButton.addActionListener(new CutHandler());
         moveToBackButton.addActionListener(new MoveToBackHandler());
         moveToFrontButton.addActionListener(new MoveToFrontHandler());
         this.lineStrokeSelectionComboBox.addActionListener(new LineStrokeHandler());
@@ -843,6 +847,7 @@ public class PoseurGUI extends JFrame
 
         // THESE ARE EASY, JUST DO AS THEY'RE TOLD
         copyButton.setEnabled(isEnabled);
+        cutButton.setEnabled(isEnabled);
         moveToBackButton.setEnabled(isEnabled);
         moveToFrontButton.setEnabled(isEnabled);
                 

@@ -69,6 +69,7 @@ public class PoseurSettings
     // BUTTON IMAGES FOR EDIT TOOLBAR
     public static final String SELECTION_IMAGE_FILE = BUTTON_IMAGES_PATH + "Selection.png";
     public static final String COPY_IMAGE_FILE = BUTTON_IMAGES_PATH + "Copy.png";
+    public static final String CUT_IMAGE_FILE = BUTTON_IMAGES_PATH + "Cut.png";
     public static final String PASTE_IMAGE_FILE = BUTTON_IMAGES_PATH + "Paste.png";
     public static final String MOVE_TO_BACK_IMAGE_FILE = BUTTON_IMAGES_PATH + "MoveToBack.png";
     public static final String MOVE_TO_FRONT_IMAGE_FILE = BUTTON_IMAGES_PATH + "MoveToFront.png";
@@ -102,6 +103,7 @@ public class PoseurSettings
     // TOOLTIPS FOR CONTROLS ON EDIT TOOLBAR
     public static final String SELECT_TOOLTIP = "Select Item";
     public static final String COPY_TOOLTIP = "Copy Selected Item";
+    public static final String CUT_TOOLTIP = "Cut Selected Item";
     public static final String PASTE_TOOLTIP = "Paste from Clipboard";
     public static final String MOVE_TO_FRONT_TOOLTIP = "Move to Front";
     public static final String MOVE_TO_BACK_TOOLTIP = "Move to Back";
