@@ -363,8 +363,7 @@ public class PoseurGUI extends JFrame
         if (mode == PoseurState.COMPLETE_SHAPE_STATE)
         {
             // THIS USES THE CROSSHAIR
-            selectCursor(Cursor.CROSSHAIR_CURSOR);
-            this.setEnabledEditControls(true);
+            selectCursor(Cursor.CROSSHAIR_CURSOR);            
         }
         // IN THIS MODE THE USER IS ABOUT TO START DRAGGING
         // THE MOUSE TO CREATE A SHAPE
