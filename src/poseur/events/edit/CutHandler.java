@@ -28,7 +28,7 @@ public class CutHandler implements ActionListener {
         PoseurShape selectedShape = singleton.getStateManager().getSelectedShape();
         LinkedList<PoseurShape> shapeList = singleton.getStateManager().getPose().getShapesList();
         int shapeIndex = shapeList.indexOf(selectedShape);
-        shapeList.remove(shapeIndex);
+        shapeList.remove(shapeIndex);        
         singleton.getStateManager().refreshState();
     }
     

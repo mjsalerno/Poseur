@@ -364,6 +364,7 @@ public class PoseurGUI extends JFrame
         {
             // THIS USES THE CROSSHAIR
             selectCursor(Cursor.CROSSHAIR_CURSOR);
+            this.setEnabledEditControls(true);
         }
         // IN THIS MODE THE USER IS ABOUT TO START DRAGGING
         // THE MOUSE TO CREATE A SHAPE

@@ -122,6 +122,7 @@ public class PoseurLine extends PoseurShape{
         copy.fillColor = this.fillColor;
         copy.outlineColor = this.outlineColor;
         copy.outlineThickness = this.outlineThickness;
+        copy.alpha = this.alpha;
         
         return copy;
     }
