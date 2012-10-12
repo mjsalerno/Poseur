@@ -107,7 +107,7 @@
                     <blue>0</blue>
                </fill_color>
                <alpha>255</alpha>
-               <geometry height="20.0" shape_type="ELLIPSE" width="102.0" x="78.0" y="125.0"/>
+               <geometry height="20.0" shape_type="ELLIPSE" width="102.0" x="77.0" y="125.0"/>
           </poseur_shape>
           <poseur_shape>
                <outline_thickness>1</outline_thickness>

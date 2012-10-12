@@ -228,28 +228,18 @@ public class PoseurLine extends PoseurShape{
     
     /**
      * This method tests to see if the x,y arguments would be valid
-     * lower-right corner points for a rectangle in progress.
+     * lower-right corner points for a line in progress.
      * 
      * @param x The x-axis coordinate for the test point.
      * 
      * @param y The y-axis coordinate for the test point.
      * 
-     * @return true if (x,y) would be a valid lower-right corner
-     * point based on where this rectangle is currently located.
+     * @return true always.
      */  
     @Override
     public boolean completesValidShape(int x, int y)
     {
-        // WE ONLY LET SHAPES BE BUILT TOP LEFT TO BOTTOM RIGHT
-        if ( (x < geometry.x2) ||
-             (y < geometry.y2))
-        {
-            return false;
-        }
-        else
-        {
             return true;
-        }
     }
     
     /**
