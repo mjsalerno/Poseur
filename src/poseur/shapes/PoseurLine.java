@@ -13,7 +13,7 @@ import static poseur.PoseurSettings.*;
 
 /**
  *
- * @author roofis0
+ * @author Michael Salerno
  */
 public class PoseurLine extends PoseurShape{
 
@@ -24,7 +24,7 @@ public class PoseurLine extends PoseurShape{
      * PoseurRectangle objects are constructed with their geometry, which
      * can be updated later via service methods.
      * 
-     * @param initGeometry The geometry to associate with this rectangle.
+     * @param initGeometry The geometry to associate with this line.
      */
     public PoseurLine( Line2D.Double initGeometry)
     {
@@ -33,7 +33,7 @@ public class PoseurLine extends PoseurShape{
     }
 
     /**
-     * This static method constructs and returns a new rectangle with an
+     * This static method constructs and returns a new line with an
      * x location of the poseSpaceX argument, a y location of poseSpaceY,
      * and a width and height of 0.
      * 
@@ -51,6 +51,17 @@ public class PoseurLine extends PoseurShape{
         return new PoseurLine(line);        
     }
     
+    /**
+     * calls the intersects method from the line class
+     * draws a box around the mouse and sees if the line
+     * intersects it.
+     * 
+     * @param x the x position of the top left corner of the box
+     * @param y the y position of the top left corner of the box
+     * @param w the width of the box
+     * @param h the height of the box
+     * @return 
+     */
     public boolean intersects(double x, double y, double w, double h){
         return this.geometry.intersects(x, y, w, h);
     }
@@ -66,12 +77,12 @@ public class PoseurLine extends PoseurShape{
         
     /**
      * This method tests if the testPoint argument is inside this
-     * rectangle. If it does, we return true, if not, false.
+     * line. If it does, we return true, if not, false.
      * 
      * @param testPoint The point we want to test and see if it is
-     * inside this rectangle
+     * inside this line
      * 
-     * @return true if the point is inside this rectangle, false otherwise.
+     * @return true if the point is inside this line, false otherwise.
      */
     @Override
     public boolean containsPoint(Point2D testPoint)
@@ -80,7 +91,7 @@ public class PoseurLine extends PoseurShape{
     }
    
     /**
-     * This method renders this rectangle to whatever context the g2 argument
+     * This method renders this line to whatever context the g2 argument
      * comes from. 
      * 
      * @param g2 The graphics context for rendering. It may refer to that
@@ -106,7 +117,7 @@ public class PoseurLine extends PoseurShape{
     }
     
     /**
-     * This method makes a clone, i.e. a duplicate, of this rectangle. This
+     * This method makes a clone, i.e. a duplicate, of this line. This
      * is useful for cut/copy/paste types of operations in applications.
      * 
      * @return A constructed object that is identical to this one.
@@ -131,9 +142,9 @@ public class PoseurLine extends PoseurShape{
      * This method moves this shape to the x, y location without doing
      * any error checking on whether it's a good location or not.
      * 
-     * @param x The x coordinate of where to move this rectangle.
+     * @param x The x coordinate of where to move this line.
      * 
-     * @param y The y coordinate of where to move this rectangle.
+     * @param y The y coordinate of where to move this line.
      */
     @Override
     public void move(int x, int y)
@@ -147,13 +158,13 @@ public class PoseurLine extends PoseurShape{
     }
 
     /**
-     * This is a smarter method for moving this rectangle, it considers
+     * This is a smarter method for moving this line, it considers
      * the pose area and prevents it from being moved off the pose area
      * by clamping at the edges.
      * 
-     * @param incX The amount to move this rectangle in the x-axis.
+     * @param incX The amount to move this line in the x-axis.
      * 
-     * @param incY The amount to move this rectangle in the y-axis.
+     * @param incY The amount to move this line in the y-axis.
      * 
      * @param poseArea The box in the middle of the rendering canvas
      * where the shapes are being rendered.
@@ -244,7 +255,7 @@ public class PoseurLine extends PoseurShape{
     }
     
     /**
-     * This method helps to update the a rectangle that's being
+     * This method helps to update the a line that's being
      * sized, testing to make sure it doesn't draw in illegal 
      * coordinates.
      * 
@@ -277,11 +288,11 @@ public class PoseurLine extends PoseurShape{
     /**
      * This method helps to build a .pose file. Rectangles know what data
      * they have, so this fills in the geometryNode argument DOC element
-     * with the rectangle data that would be needed to recreate it when
+     * with the line data that would be needed to recreate it when
      * it's loaded back from the .pose (xml) file.
      * 
      * @param geometryNode The node where we'll put attributes regarding
-     * the geometry of this rectangle.
+     * the geometry of this line.
      */    
     @Override
     public void addNodeData(Element geometryNode)

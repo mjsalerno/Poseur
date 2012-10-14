@@ -11,13 +11,18 @@ import poseur.files.PoseurFileManager;
 
 /**
  *
- * @author roofis0
+ * @author Michael Salerno
  */
 public class SavePoseAsHandler implements ActionListener {
 
     public SavePoseAsHandler() {
     }
-
+    /**
+     * Called when the user requests to save the
+     * pose as another pose
+     * 
+     * @param ae The Event Object.
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
          // FORWARD THE REQUEST TO THE FILE MANAGER

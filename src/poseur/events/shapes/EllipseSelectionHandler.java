@@ -11,14 +11,22 @@ import poseur.shapes.PoseurShapeType;
 import poseur.state.PoseurStateManager;
 
 /**
- *
- * @author roofis0
+ * This handler responds to when the user requests to
+ * start drawing an Ellipse.
+ * 
+ * @author  Michael Salerno
  */
 public class EllipseSelectionHandler implements ActionListener {
 
-    public EllipseSelectionHandler() {
-    }
 
+     /**
+     * When the user requests to draw an Ellipse, we'll need
+     * to notify the data manager, since it managers the 
+     * shape in progress. It will update the gui as needed
+     * as well.
+     * 
+     * @param ae The Event Object.
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
          // RELAY THE REQUEST TO THE DATA MANAGER

@@ -6,8 +6,8 @@ import java.util.logging.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import poseur.PoseurSettings;
-import poseur.state.ColorPalletState;
 import static poseur.PoseurSettings.*;
+import poseur.state.ColorPalletState;
 
 /**
  * This class can be used to load color pallet data from an XML file into a
@@ -36,15 +36,21 @@ public class ColorPalletLoader {
         try {
             Document doc = xmlLoader.loadXMLDocument(colorPalletXMLFile, COLOR_PALLET_SETTINGS_SCHEMA);
             
+            //the size of the pallet
             int pSize = xmlLoader.getIntData(doc, PoseurSettings.PALLET_SIZE_NODE);
+            //how many rows there will be in the pallet
             int pRows = xmlLoader.getIntData(doc, PoseurSettings.PALLET_ROWS_NODE);
+            //how many colors there are in the pallet
             int manyColors = xmlLoader.getNumNodesOfElement(doc, PoseurSettings.PALLET_COLOR_NODE);
+            //an array to store all of the loaded colors
             Color[] colors = new Color[pSize];
             
             Node tmp;
+            //to hold the RGB values
             int red, blue, green;
             Color defaultColor;
 
+            //first get the default color
             tmp = xmlLoader.getNodeInSequence(doc, RED_NODE, 0);
             red = Integer.parseInt(tmp.getFirstChild().getNodeValue());
 
@@ -56,7 +62,7 @@ public class ColorPalletLoader {
 
             defaultColor = new Color(red, green, blue);
             
-            
+            //get the rest of the colors
             for (int i = 0; i < manyColors; i++) {
                 tmp = xmlLoader.getNodeInSequence(doc, RED_NODE, i);                
                 red = Integer.parseInt(tmp.getFirstChild().getNodeValue());

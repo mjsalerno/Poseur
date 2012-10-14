@@ -11,6 +11,6 @@ package poseur.shapes;
 public enum PoseurShapeType 
 {
     RECTANGLE,
-    ELLIPSE
-    // WE COULD ADD MORE TYPES
-,   LINE}
+    ELLIPSE,
+    LINE
+}

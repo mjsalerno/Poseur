@@ -98,21 +98,21 @@ public class PoseIO
                 shapeToAdd = null;
                 
                 
-                if(shapeType.equals(shapeType.RECTANGLE)){
+                if(shapeType.equals(PoseurShapeType.RECTANGLE)){
                     double x = Double.parseDouble(attributes.getNamedItem(X_ATTRIBUTE).getTextContent());
                     double y = Double.parseDouble(attributes.getNamedItem(Y_ATTRIBUTE).getTextContent());
                     double width = Double.parseDouble(attributes.getNamedItem(WIDTH_ATTRIBUTE).getTextContent());
                     double height = Double.parseDouble(attributes.getNamedItem(HEIGHT_ATTRIBUTE).getTextContent());
                     Rectangle2D.Double geometry = new Rectangle2D.Double(x, y, width, height);
                     shapeToAdd = new PoseurRectangle(geometry);
-                }else if(shapeType.equals(shapeType.ELLIPSE)){
+                }else if(shapeType.equals(PoseurShapeType.ELLIPSE)){
                     double x = Double.parseDouble(attributes.getNamedItem(X_ATTRIBUTE).getTextContent());
                     double y = Double.parseDouble(attributes.getNamedItem(Y_ATTRIBUTE).getTextContent());
                     double width = Double.parseDouble(attributes.getNamedItem(WIDTH_ATTRIBUTE).getTextContent());
                     double height = Double.parseDouble(attributes.getNamedItem(HEIGHT_ATTRIBUTE).getTextContent());
                     Ellipse2D.Double geometry = new Ellipse2D.Double(x, y, width, height);
                     shapeToAdd = new PoseurEllipse(geometry);
-                } else if (shapeType.equals(shapeType.LINE)) {
+                } else if (shapeType.equals(PoseurShapeType.LINE)) {
                     double x1 = Double.parseDouble(attributes.getNamedItem(X1_ATTRIBUTE).getTextContent());
                     double y1 = Double.parseDouble(attributes.getNamedItem(Y1_ATTRIBUTE).getTextContent());
                     double x2 = Double.parseDouble(attributes.getNamedItem(X2_ATTRIBUTE).getTextContent());

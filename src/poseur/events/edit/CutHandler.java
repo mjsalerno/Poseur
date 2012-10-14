@@ -13,13 +13,20 @@ import poseur.state.PoseurStateManager;
 
 /**
  *
- * @author roofis0
+ * This event handler responds to when the user has selected an item
+ * on the canvas and has asked to cut it, which should place
+ * it on the clipboard.
+ * 
+ * @author Michael Salerno
  */
 public class CutHandler implements ActionListener {
 
-    public CutHandler() {
-    }
-
+    /**
+     * This method relays this event to the state manager, which
+     * will update the clipboard accordingly.
+     * 
+     * @param ae The event object for this button press.
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         Poseur singleton = Poseur.getPoseur();

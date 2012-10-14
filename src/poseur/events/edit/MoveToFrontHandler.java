@@ -16,9 +16,13 @@ import poseur.shapes.PoseurShape;
  */
 public class MoveToFrontHandler implements ActionListener {
 
-    public MoveToFrontHandler() {
-    }
-
+    
+    /**
+     * is called when the user 
+     * wants to move a selected shape
+     * to the front of all of the other shapes
+     * @param e The event object for this button press.
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         Poseur singleton = Poseur.getPoseur();
@@ -27,6 +31,9 @@ public class MoveToFrontHandler implements ActionListener {
         PoseurShape selectedShape = singleton.getStateManager().getSelectedShape();
         LinkedList<PoseurShape> shapeList = singleton.getStateManager().getPose().getShapesList();
         shapeIndex = shapeList.indexOf(selectedShape);
+        //remove the shape from the list
+        //and add it to the back so it gets drawn last
+        //making the shape appear in the front of the rest of the shapes
         shapeList.remove(shapeIndex);
         shapeList.add(selectedShape);
         singleton.getStateManager().refreshState();
