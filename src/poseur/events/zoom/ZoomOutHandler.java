@@ -13,11 +13,17 @@ import poseur.state.PoseurStateManager;
 
 /**
  *
- * @author roofis0
+ * @author Michael Salerno
  */
 public class ZoomOutHandler implements ActionListener {
 
 
+    /**
+     * This method responds by updating the zoom level 
+     * accordingly and repainting the view.
+     * 
+     * @param ae The Event Object.
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         // RELAY THE REQUEST TO THE STATE MANAGER
